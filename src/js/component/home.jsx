@@ -34,7 +34,7 @@ const Home = () => {
 	let newTasks = [
 		{ label: "Make the bed", done: false },
 		{ label: "Walk the dog", done: false },
-		{ label: "Do the replits", done: false },
+		{ label: "Do the replits", done: true },
 	];
 
 	// PUT - update tasks from User
@@ -85,11 +85,15 @@ const Home = () => {
 			<div className="container-fluid">
 				<ToDoList />
 			</div>
-			<div>
+			<div className="container-fluid">
+				<span className="titleAPI">Tasks from your Profile:</span>
 				{tasks.map((task, index) => {
 					return (
-						<p key={index}>
-							{task.label} {task.done == true ? "true" : "false"}
+						<p key={index} className="tasksAPI">
+							{task.done == true
+								? "Good job doing this!:"
+								: "You need to do this task...:"}{" "}
+							{task.label}
 						</p>
 					);
 				})}
